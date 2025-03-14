@@ -8,4 +8,4 @@ from users.serializers import UserRegisterSerializer
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserRegisterSerializer
     queryset = User.objects.all()
-    permission_classes = [permissions.IsAuthenticated, IsSuperuser]
+    # permission_classes = [permissions.IsAuthenticated, IsSuperuser]

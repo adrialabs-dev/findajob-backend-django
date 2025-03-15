@@ -1,5 +1,5 @@
 db.sqlite3
 __pycache__
-users/__pycache__
-jobs/__pycache__
+users/__pycache__/*
+jobs/__pycache__/*
 .env

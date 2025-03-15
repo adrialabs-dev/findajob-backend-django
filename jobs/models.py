@@ -42,13 +42,10 @@ class Jobs(models.Model):
     job_title = models.CharField(max_length=255)
     job_description = models.TextField()
     skills = models.JSONField(default=list, blank=True)
-    # contract_type = models.CharField(max_length=150, null=True, blank=True)
     contract_type = models.CharField(
         max_length=20, choices=CONTRACT_TYPES, null=True, blank=True
     )
-    # work_schedule = models.TextField(default="[]", null=True)
     work_schedule = models.JSONField(default=list, blank=True)
-    # seniority = models.CharField(max_length=150, null=True, blank=True)
     seniority = models.CharField(
         max_length=20, choices=SENIORITY, null=True, blank=True
     )
@@ -62,8 +59,7 @@ class Jobs(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     experience = models.IntegerField(null=True, default=0)
     url_direct = models.CharField(max_length=150, null=True, blank=True)
-    # author = models.CharField(max_length=150, null=True, blank=True)
-    created_by = models.ForeignKey(User, on_delete=SET_NULL, null=True)
+    created_by = models.ForeignKey(User, on_delete=SET_NULL, null=True, blank=True, default=User)
 
     def __str__(self):
         return self.job_title
